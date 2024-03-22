@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Cuties</title>
+    <style>
+        :root {
+            /* Colores */
+            --color-primario: #EF38A0;
+            --color-secundario: #fffdee;
+            --color-terciario: #ffa8b7;
+            --color-cuaternario: #f7589d;
+            --color-texto: #333333;
+            --color-fondo: #FFFFFF;
+
+            /* Colores transparentes */
+            --color-primaroi-transparente: rgba(239, 56, 160, 0.1);
+            --color-secundario-transparente: rgba(255, 253, 238, 0.1);
+            --color-terciario-transparente: rgba(255, 168, 183, 0.1);
+            --color-cuaternario-transparente: rgba(247, 88, 157, 0.1);
+
+
+            --color-gradiente: linear-gradient(0deg, var(--color-primario), var(--color-terciario));
+
+            /* Tipografía */
+            --fuente-principal: "Arial", sans-serif;
+            --fuente-logo: 25px;
+            --fuente-titulo: 45px;
+            --fuente-subtitulo: 18px;
+            --fuente-cuerpo: 16px;
+
+            /* Espaciado */
+            --espaciado-pequeno: 8px;
+            --espaciado-mediano: 16px;
+            --espaciado-grande: 24px;
+        }
+    </style>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: var(--fuente-principal);
+            background: none;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: var(--color-gradiente);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--espaciado-mediano);
+            color: var(--color-fondo);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-fondo);
+        }
+
+        header h1 {
+            font-size: var(--fuente-logo);
+        }
+
+        header h1 a {
+            text-decoration: none;
+            color: var(--color-fondo);
+            transition: ease 0.3s;
+        }
+
+        header h1 a:hover {
+            color: var(--color-cuaternario);
+            transition: ease 0.3s;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--color-fondo);
+            padding: var(--espaciado-pequeno) var(--espaciado-mediano);
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover {
+            border-bottom: 2px solid var(--color-fondo);
+            transition: ease 0.3s;
+        }
+
+        .botonesSession button {
+            padding: var(--espaciado-pequeno) var(--espaciado-mediano);
+            margin-left: var(--espaciado-pequeno);
+            cursor: pointer;
+            border-radius: 6px;
+            transition: ease 0.3s;
+        }
+
+        .button-primary {
+            background-color: var(--color-secundario);
+            color: var(--color-primario);
+            border: 1px solid var(--color-secundario);
+            transition: ease 0.3s;
+        }
+
+        .button-primary:hover {
+            background-color: rgba(0, 0, 0, 0);
+            color: var(--color-secundario);
+            transition: ease 0.3s;
+        }
+
+        .button-secondary {
+            background-color: var(--color-cuaternario);
+            color: var(--color-secundario);
+            border: 1px solid var(--color-cuaternario);
+            transition: ease 0.3s;
+        }
+
+        .button-secondary:hover {
+            background-color: rgba(0, 0, 0, 0);
+            color: var(--color-cuaternario);
+            transition: ease 0.3s;
+        }
+
+        .botonesSession {
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+
+    <!--  estilos de bienvenida -->
+    <style>
+        #bienvenida {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: var(--espaciado-grande);
+            color: var(--color-secundario);
+            height: 60vh;
+        }
+
+        #bienvenida h2 {
+            font-size: var(--fuente-titulo);
+            margin-bottom: var(--espaciado-mediano);
+            text-align: center;
+        }
+
+        #bienvenida span {
+            padding: var(--espaciado-pequeno) var(--espaciado-mediano);
+            background-color: var(--color-cuaternario);
+            ;
+            border-radius: 10px;
+            line-height: 2.2;
+        }
+
+        #bienvenida p {
+            font-size: var(--fuente-cuerpo);
+            text-align: center;
+            margin-bottom: var(--espaciado-grande);
+            max-width: 400px;
+        }
+
+        #bienvenida p::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 2px;
+            background-color: var(--color-secundario);
+            margin: var(--espaciado-mediano) auto;
+        }
+
+        #bienvenida button {
+            padding: var(--espaciado-pequeno) var(--espaciado-mediano);
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: var(--fuente-subtitulo);
+        }
+    </style>
+
+    <!-- cursos section -->
+    <style>
+        .cursos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .curso {
+            width: 200px;
+            margin: var(--espaciado-mediano);
+            padding: var(--espaciado-mediano);
+            background-color: var(--color-secundario-transparente);
+            border-radius: 8px;
+            border: 1px solid var(--color-secundario);
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            color: var(--color-secundario);
+            transition: ease 0.3s;
+        }
+
+        .curso:hover {
+            background-color: var(--color-secundario);
+            color: var(--color-primario);
+            transform: translateY(-5px);
+            transition: ease 0.3s;
+        }
+
+        .curso h3 {
+            font-size: 20px;
+            margin-bottom: var(--espaciado-pequeno);
+        }
+
+        .curso p {
+            font-size: var(--fuente-cuerpo);
+            margin-bottom: var(--espaciado-mediano);
+        }
+
+        .curso button {
+            background-color: var(--color-primario);
+            color: var(--color-fondo);
+            border: none;
+            border-radius: 6px;
+            padding: var(--espaciado-pequeno) var(--espaciado-mediano);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .curso button:hover {
+            background-color: var(--color-cuaternario);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Encabezado -->
+    <header>
+        <!-- Logo y Nombre de la Plataforma -->
+        <h1><a href="#bienvenida">Code Cuties</a></h1>
+        <!-- barra de navegacion -->
+        <nav>
+            <ul>
+                <li><a href="#bienvenida">Inicio</a></li>
+                <li><a href="#cursos-destacados">Cursos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <!-- Botones de Inicio de Sesión y Registro -->
+        <div class="botonesSession">
+            <button class="button-primary">Iniciar Sesión</button>
+            <button class="button-secondary">Registrarse</button>
+        </div>
+    </header>
+
+    <!-- Página Principal -->
+    <main>
+        <!-- Sección de Bienvenida -->
+        <section id="bienvenida">
+            <!-- Título Principal -->
+            <h2>Code Cuties: Programar es <span>Atractivo</span></h2>
+            <!-- Descripción de la Plataforma -->
+            <p>Con nuestras profesoras podrás aprender a programar de una forma sencilla y divertida. ¡Únete a nuestra
+                comunidad de Code Cuties!</p>
+            <!-- Llamado a la Acción -->
+            <button class="button-primary">¡Comienza Ahora!</button>
+        </section>
+
+
+        <!-- Sección de Cursos Destacados -->
+        <section id="cursos-destacados">
+            <!-- Lista de Cursos Destacados -->
+            <div class="cursos-container">
+                <!-- Curso 1 -->
+                <div class="curso">
+                    <h3>Introducción a la Programación</h3>
+                    <p>Descripción breve del curso.</p>
+                    <button class="button-primary">Más Información</button>
+                </div>
+                <!-- Curso 2 -->
+                <div class="curso">
+                    <h3>Desarrollo Web con HTML y CSS</h3>
+                    <p>Descripción breve del curso.</p>
+                    <button class="button-primary">Más Información</button>
+                </div>
+                <!-- Curso 3 -->
+                <div class="curso">
+                    <h3>Programación Orientada a Objetos con Java</h3>
+                    <p>Descripción breve del curso.</p>
+                    <button class="button-primary">Más Información</button>
+                </div>
+                <!-- Agrega más cursos según sea necesario -->
+            </div>
+        </section>
+
+
+        <!-- Sección de Testimonios -->
+        <section id="testimonios">
+            <!-- Título -->
+            <!-- Testimonios de Usuarios -->
+        </section>
+
+        <!-- Sección de Información Adicional -->
+        <section id="informacion-adicional">
+            <!-- Descripción de la Plataforma -->
+            <!-- Ventajas de Aprender con CodeCuties -->
+            <!-- Llamado a la Acción Adicional -->
+        </section>
+
+        <!-- Sección de Contacto o Soporte -->
+        <section id="contacto">
+            <!-- Formulario de Contacto -->
+            <!-- Preguntas Frecuentes (FAQ) -->
+        </section>
+    </main>
+
+    <!-- Pie de Página (opcional) -->
+    <footer>
+        <!-- Enlaces adicionales o información de contacto -->
+    </footer>
+</body>
+
+</html>
