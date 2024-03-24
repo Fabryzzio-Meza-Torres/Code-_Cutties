@@ -22,14 +22,16 @@
             --color-cuaternario-transparente: rgba(247, 88, 157, 0.1);
 
 
-            --color-gradiente: linear-gradient(0deg, var(--color-primario), var(--color-terciario));
+            --color-gradiente: linear-gradient(50deg, var(--color-primario), var(--color-terciario));
 
             /* Tipografía */
             --fuente-principal: "Arial", sans-serif;
+            --fuente-consolas: "Consolas", monospace;
             --fuente-logo: 25px;
             --fuente-titulo: 45px;
-            --fuente-subtitulo: 18px;
+            --fuente-subtitulo: 25px;
             --fuente-cuerpo: 16px;
+            --fuente-button: 18px;
 
             /* Espaciado */
             --espaciado-pequeno: 8px;
@@ -48,6 +50,14 @@
             padding: 0;
             font-family: var(--fuente-principal);
             background: none;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
         }
 
         body {
@@ -159,21 +169,46 @@
             align-items: center;
             padding: var(--espaciado-grande);
             color: var(--color-secundario);
-            height: 60vh;
+            padding-top: 13vh;
+            padding-bottom: 10vh;
         }
 
         #bienvenida h2 {
+            display: flex;
             font-size: var(--fuente-titulo);
             margin-bottom: var(--espaciado-mediano);
             text-align: center;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         #bienvenida span {
             padding: var(--espaciado-pequeno) var(--espaciado-mediano);
             background-color: var(--color-cuaternario);
-            ;
             border-radius: 10px;
-            line-height: 2.2;
+            margin: var(--espaciado-mediano);
+            color: var(--color-secundario);
+            font-family: var(--fuente-consolas);
+        }
+
+        #bienvenida span::after {
+            content: "|";
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         #bienvenida p {
@@ -196,7 +231,7 @@
             padding: var(--espaciado-pequeno) var(--espaciado-mediano);
             cursor: pointer;
             border-radius: 6px;
-            font-size: var(--fuente-subtitulo);
+            font-size: var(--fuente-button);
         }
     </style>
 
@@ -209,7 +244,8 @@
         }
 
         .curso {
-            width: 200px;
+            width: 33%;
+            max-width: 300px;
             margin: var(--espaciado-mediano);
             padding: var(--espaciado-mediano);
             background-color: var(--color-secundario-transparente);
@@ -251,6 +287,314 @@
             background-color: var(--color-cuaternario);
         }
     </style>
+
+
+    <!-- informacion adicional -->
+    <style>
+        #informacion-adicional {
+            margin-top: var(--espaciado-grande);
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-around;
+            max-width: var(--max-width);
+            padding: var(--espaciado-grande);
+            height: 70vh;
+            align-items: center;
+        }
+
+        #informacion-adicional .content {
+            width: 50%;
+            padding: var(--espaciado-mediano);
+            color: var(--color-secundario);
+            padding-right: var(--espaciado-grande);
+        }
+
+        #informacion-adicional .content h3 {
+            font-size: var(--fuente-subtitulo);
+            margin-bottom: var(--espaciado-grande);
+        }
+
+        #informacion-adicional .content ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            justify-content: space-between;
+            border-left: 2px solid var(--color-secundario);
+            padding-left: var(--espaciado-mediano);
+        }
+
+        #informacion-adicional .content .ventaja {
+            width: 100%;
+            padding: var(--espaciado-mediano);
+            border-radius: 8px;
+            margin-top: var(--espaciado-mediano);
+            border: 1px solid var(--color-secundario-transparente);
+            transition: ease 0.3s;
+        }
+
+        #informacion-adicional .content .ventaja h4 {
+            margin-bottom: var(--espaciado-pequeno);
+        }
+
+        #informacion-adicional .content .selected-ventaja {
+            background-color: var(--color-secundario-transparente);
+            border: 1px solid var(--color-secundario);
+            transition: ease 0.3s;
+        }
+
+        #informacion-adicional .content .ventaja p {
+            font-size: var(--fuente-cuerpo);
+        }
+
+        #informacion-adicional .image {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #informacion-adicional .image img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+
+    <!-- precios -->
+    <style>
+        #precios {
+            border-top: 2px solid var(--color-secundario);
+            width: 100%;
+            height: 120vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            padding: var(--espaciado-grande);
+            background-color: var(--color-secundario-transparente);
+            padding-bottom: 20vh;
+        }
+
+        #precios .subtitle {
+            font-size: var(--fuente-subtitulo);
+            padding: var(--espaciado-mediano);
+            padding-top: 0;
+            margin: 0;
+            color: var(--color-secundario);
+        }
+
+        #precios .content {
+            width: 100%;
+            max-width: var(--max-width);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        #precios .plan {
+            display: flex;
+            width: 25%;
+            margin: var(--espaciado-mediano);
+            background-color: var(--color-secundario-transparente);
+            border-radius: 8px;
+            border: 1px solid var(--color-secundario);
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            color: var(--color-secundario);
+            transition: ease 0.3s;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        #precios .plan:hover {
+            background-color: var(--color-secundario);
+            color: var(--color-primario);
+            scale: 1.04;
+            transition: ease 0.3s;
+        }
+
+        #precios .plan h3 {
+            padding: var(--espaciado-mediano);
+            font-size: var(--fuente-subtitulo);
+            margin-bottom: var(--espaciado-mediano);
+            width: 100%;
+            border-bottom: 2px solid var(--color-secundario);
+            background-color: var(--color-secundario-transparente);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #precios .plan ul {
+            padding: var(--espaciado-mediano);
+        }
+
+        #precios .plan ul li {
+            margin-left: var(--espaciado-grande);
+            font-size: var(--fuente-cuerpo);
+            margin-bottom: var(--espaciado-grande);
+        }
+
+        #precios .plan button {
+            width: 100%;
+            background-color: var(--color-primario);
+            color: var(--color-fondo);
+            border: none;
+            padding: var(--espaciado-grande);
+            cursor: pointer;
+            border-top: 2px solid var(--color-secundario);
+            font-size: var(--fuente-button);
+        }
+
+        #precios .plan button:hover {
+            background-color: var(--color-cuaternario);
+        }
+
+        .notAllowed {
+            /* tachado */
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+
+        .maximo-clases {
+            /* negrita */
+            font-weight: bold;
+        }
+
+        #recomendado {
+            /* fondo */
+            transform: scale(1.04);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+        }
+
+        #recomendado h3::after {
+            content: "Recomendado";
+            font-size: 12px;
+            color: var(--color-secundario);
+            background-color: var(--color-cuaternario);
+            padding: var(--espaciado-pequeno);
+            border-radius: 8px;
+        }
+
+        #precios h4 {
+            font-size: var(--fuente-subtitulo);
+            padding: var(--espaciado-mediano);
+            padding-top: 0;
+            margin: 0;
+        }
+    </style>
+
+    <!-- footer -->
+    <style>
+        footer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            background-color: var(--color-primario);
+            color: var(--color-secundario);
+            padding: var(--espaciado-mediano);
+            padding-top: calc(var(--espaciado-mediano) * 4);
+        }
+
+        footer * {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        footer .top {
+            display: flex;
+            justify-content: space-around;
+            align-items: stretch;
+            width: 100%;
+            max-width: var(--max-width);
+            flex-direction: row-reverse;
+        }
+
+        footer .logo-redes {
+            width: 25%;
+            height: 100%;
+            display: flex;
+        }
+
+        footer .logo-redes img {
+            width: 80%;
+            height: auto;
+            margin-top: calc(var(--espaciado-grande) * -2);
+            margin-bottom: var(--espaciado-mediano);
+        }
+
+        footer .redes-sociales a {
+            text-decoration: none;
+            color: var(--color-secundario);
+            padding: var(--espaciado-pequeno);
+            border-radius: 8px;
+            background-color: var(--color-secundario-transparente);
+            margin: var(--espaciado-pequeno);
+            transition: ease 0.3s;
+        }
+
+        footer .redes-sociales a:hover {
+            background-color: var(--color-secundario);
+            color: var(--color-primario);
+            transition: ease 0.3s;
+        }
+        
+
+        footer .info-contacto {
+            display: flex;
+            width: 25%;
+        }
+
+        footer .info-contacto p {
+            font-size: var(--fuente-cuerpo);
+            line-height: 1.5;
+        }
+
+        footer .info-contacto p a {
+            color: var(--color-terciario);
+            text-decoration: none;
+        }
+
+        footer .info-contacto p::after {
+            content: "";
+            display: block;
+            width: 10px;
+            height: 2px;
+            background-color: var(--color-secundario);
+            margin: var(--espaciado-mediano) 0;
+        }
+
+        footer .links-rapidos {
+            display: flex;
+        }
+
+
+        footer .links-rapidos a {
+            text-decoration: none;
+            color: var(--color-secundario);
+            padding-left: var(--espaciado-mediano);
+            margin-bottom: calc(var(--espaciado-pequeno) * 2);
+            transition: ease 0.3s;
+            border-left: 3px solid var(--color-secundario);
+        }
+
+        footer .links-rapidos a:hover {
+            transform: translateX(5px);
+            transition: ease 0.3s;
+            border-left: 3px solid var(--color-terciario);
+            color: var(--color-terciario);
+        }
+
+        footer .copyright {
+            border-top: 2px solid var(--color-secundario);
+            padding-top: var(--espaciado-mediano);
+            font-size: var(--fuente-cuerpo);
+            margin: calc(var(--espaciado-grande) * 2)  0 var(--espaciado-grande) 0;
+        }
+    </style>
+    
 </head>
 
 <body>
@@ -280,7 +624,7 @@
         <!-- Sección de Bienvenida -->
         <section id="bienvenida">
             <!-- Título Principal -->
-            <h2>Code Cuties: Programar es <span>Atractivo</span></h2>
+            <h2>Code Cuties: Programar también es <span>Sexy</span></h2>
             <!-- Descripción de la Plataforma -->
             <p>Con nuestras profesoras podrás aprender a programar de una forma sencilla y divertida. ¡Únete a nuestra
                 comunidad de Code Cuties!</p>
@@ -296,19 +640,19 @@
                 <!-- Curso 1 -->
                 <div class="curso">
                     <h3>Introducción a la Programación</h3>
-                    <p>Descripción breve del curso.</p>
+                    <p>Aprende los conceptos básicos de la programación. ¡No necesitas experiencia previa!</p>
                     <button class="button-primary">Más Información</button>
                 </div>
                 <!-- Curso 2 -->
                 <div class="curso">
-                    <h3>Desarrollo Web con HTML y CSS</h3>
-                    <p>Descripción breve del curso.</p>
+                    <h3>Desarrollo Frontend con HTML, CSS y JavaScript</h3>
+                    <p>Conviértete en un experto en el desarrollo de interfaces web.</p>
                     <button class="button-primary">Más Información</button>
                 </div>
                 <!-- Curso 3 -->
                 <div class="curso">
-                    <h3>Programación Orientada a Objetos con Java</h3>
-                    <p>Descripción breve del curso.</p>
+                    <h3>Desarrrollo Backend</h3>
+                    <p>Desarrolla soluciones web completas y seguras.</p>
                     <button class="button-primary">Más Información</button>
                 </div>
                 <!-- Agrega más cursos según sea necesario -->
@@ -316,17 +660,120 @@
         </section>
 
 
-        <!-- Sección de Testimonios -->
-        <section id="testimonios">
-            <!-- Título -->
-            <!-- Testimonios de Usuarios -->
-        </section>
-
         <!-- Sección de Información Adicional -->
         <section id="informacion-adicional">
             <!-- Descripción de la Plataforma -->
-            <!-- Ventajas de Aprender con CodeCuties -->
-            <!-- Llamado a la Acción Adicional -->
+            <div class="content">
+                <h3>¿Por qué Code Cuties?</h3>
+                <ul>
+                    <li>
+                        <div class="ventaja" ventaja="ruta">
+                            <h4>Escoge tu Ruta de Aprendizaje</h4>
+                            <p>Escoge entre una variedad de rutas de aprendizaje y cursos. ¡Aprende lo que más te interesa!</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ventaja selected-ventaja" ventaja="profesoras">
+                            <h4>Profesoras Expertas</h4>
+                            <p>Escoge a tu profesora favorita y aprende de las mejores.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="ventaja" ventaja="comunidad">
+                            <h4>Comunidad de Aprendizaje</h4>
+                            <p>Únete a nuestra comunidad de Code Cuties y comparte tus proyectos con otros estudiantes.</p>
+                        </div>
+                    </li>
+                </ul>
+                <script>
+                    //seleccionar el q pasa por el mouse encima
+                    const ventajas = document.querySelectorAll('.ventaja');
+                    ventajas.forEach(ventaja => {
+                        ventaja.addEventListener('mouseover', () => {
+                            ventajas.forEach(item => item.classList.remove('selected-ventaja'));
+                            ventaja.classList.add('selected-ventaja');
+                            
+                            //ocultar
+                            document.getElementById('ruta-ventaja-img').style = 'display: none';
+                            document.getElementById('profesoras-ventaja-img').style = 'display: none';
+                            document.getElementById('comunidad-ventaja-img').style = 'display: none';
+
+                            if (ventaja.getAttribute('ventaja') === 'ruta') {
+                                document.getElementById('ruta-ventaja-img').style = 'display: block';
+                            } else if (ventaja.getAttribute('ventaja') === 'profesoras') {
+                                document.getElementById('profesoras-ventaja-img').style = 'display: block';
+                            } else if (ventaja.getAttribute('ventaja') === 'comunidad') {
+                                document.getElementById('comunidad-ventaja-img').style = 'display: block';
+                            }
+                        });
+                    });
+
+                    //pasar el mouse por encima del que tiene la clase selected-ventaja
+                    document.addEventListener('DOMContentLoaded', () => {
+                        document.querySelector('.selected-ventaja').dispatchEvent(new Event('mouseover'));
+                    });
+                </script>
+            </div>
+            <div class="image" id="why-images">
+                <!-- Imagen o Gráfico Adicional -->
+                <div id="ruta-ventaja-img">
+                    <!-- arbol binario con html y css -->
+                    
+                </div>
+                <img src="logoInterr.png" alt="Ventaja Profesoras" id="profesoras-ventaja-img" style="display: none;" />
+                <img src="A" alt="Ventaja Comunidad" id="comunidad-ventaja-img" style="display: none;" />
+            </div>
+        </section>
+
+
+        <!-- Precios -->
+        <section id="precios">
+            <h4 class="subtitle">Nuestros Planes:</h4>
+            <div class="content">
+                <!-- Planes de Precio -->
+                <!-- Gratis - clases en VIVO, no comentarios, no feedback-->
+                <div class="plan">
+                    <h3>Junior</h3>
+                    <h4>¡Gratis!</h4>
+                    <ul>
+                        <li>Clases en Vivo</li>
+                        <li class="notAllowed">Clases Grabadas</li>
+                        <li class="notAllowed">Comentarios</li>
+                        <li class="notAllowed">Feedback</li>
+                        <li class="maximo-clases">Máximo de 8 horas por Mes</li>
+                        <li class="notAllowed">Máximo de 20 horas por Mes</li>
+                        <li class="notAllowed">Acceso a horas ILIMITADAS al Mes</li>
+                    </ul>
+                    <button class="button-primary">¡Regístrate Ahora!</button>
+                </div>
+                <!-- Junior - clases en vivo, comentarios, feedback -->
+                <div class="plan" id="recomendado">
+                    <h3>Middle</h3>
+                    <h4>35$ / Mes</h4>
+                    <ul>
+                        <li>Clases en Vivo</li>
+                        <li>Clases Grabadas</li>
+                        <li>Comentarios</li>
+                        <li class="notAllowed">Feedback</li>
+                        <li class="notAllowed">Máximo de 8 horas por Mes</li>
+                        <li class="maximo-clases">Máximo de 20 horas por Mes</li>
+                    </ul>
+                    <button class="button-primary">¡Regístrate Ahora!</button>
+                </div>
+                <!-- Senior - clases en vivo, comentarios, feedback, horas ilimitadas al mes, avanza a tu ritmo -->
+                <div class="plan">
+                    <h3>Senior</h3>
+                    <h4>55$ / Mes</h4>
+                    <ul>
+                        <li>Clases en Vivo</li>
+                        <li>Clases Grabadas</li>
+                        <li>Comentarios</li>
+                        <li>Feedback</li>
+                        <li class="notAllowed">Máximo de 20 horas por Mes</li>
+                        <li class="maximo-clases">Acceso a horas ILIMITADAS al Mes</li>
+                    </ul>
+                    <button class="button-primary">¡Regístrate Ahora!</button>
+            </div>
         </section>
 
         <!-- Sección de Contacto o Soporte -->
@@ -338,7 +785,32 @@
 
     <!-- Pie de Página (opcional) -->
     <footer>
-        <!-- Enlaces adicionales o información de contacto -->
+        <div class="top">
+            <div class="logo-redes">
+                <img src="logoWhite.png" alt="Logo Code Cuties" />
+                <div class="redes-sociales">
+                    <a href="https://www.facebook.com" target="_blank">Facebook</a>
+                    <a href="https://www.instagram.com" target="_blank">Instagram</a>
+                    <a href="https://www.twitter.com" target="_blank">Twitter</a>
+                </div>
+            </div>
+            <!-- Información de Contacto -->
+            <div class="info-contacto">
+                <p>Correo: <a href="mailto:cesar.cap20.p@gmail.com">cesar.cap20.p@gmail.com </a></p>
+                <p>Teléfono: +51 999 999 999</p>
+                <p>Dirección: Av. Siempreviva 123, Springfield</p>
+                <p>Horario de Atención: Lunes a Viernes de 9:00 am a 6:00 pm</p>
+            </div>
+            <div class="links-rapidos">
+                <a href="#bienvenida">Inicio</a>
+                <a href="#cursos-destacados">Cursos</a>
+                <a href="#contacto">Contacto</a>
+                <a href="#precios">Precios</a>
+                <a href="#informacion-adicional">Información Adicional</a>
+            </div>
+        </div>
+        <!-- Derechos de Autor -->
+        <p class="copyright">&copy; 2021 Code Cuties. Todos los derechos reservados.</p>
     </footer>
 </body>
 
