@@ -642,7 +642,12 @@
             <p>Con nuestras profesoras podrás aprender a programar de una forma sencilla y divertida. ¡Únete a nuestra
                 comunidad de Code Cuties!</p>
             <!-- Llamado a la Acción -->
-            <button class="button-primary">¡Comienza Ahora!</button>
+            <button class="button-primary" id="start-now">¡Comienza Ahora!</button>
+            <script>
+                document.getElementById('start-now').addEventListener('click', () => {
+                    document.getElementById('precios').scrollIntoView({ behavior: 'smooth' });
+                });
+            </script>
         </section>
 
 
